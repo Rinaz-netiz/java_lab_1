@@ -41,6 +41,13 @@ public class FileManager {
     }
 
     public static boolean exportToText(List<Book> books, String filename) {
+        String dirPath = "data"; 
+        File dir = new File(dirPath);
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("=".repeat(100));
             writer.newLine();
